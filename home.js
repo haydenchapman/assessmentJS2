@@ -6,8 +6,6 @@
     helps with some functionality on the home 
     page of the restaurant's website.
 */
-
-
 //////////////////PROBLEM 1////////////////////
 /* 
     Write an *arrow* function called `greetUser`
@@ -20,13 +18,10 @@
     argument, `greetUser` should return the string:
     'Welcome back, Andrew'
 */
-
 //CODE HERE
-
-
-
-
-
+const greetUser = (username) => {
+    console.log(`Welcome back, ${username}`);
+  };
 //////////////////PROBLEM 2////////////////////
 /* 
     Below is an array of zip codes that are in
@@ -46,13 +41,16 @@
     canWeDeliver(85205) 
         // `You're in our delivery zone!`
 */
-
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
-
 //CODE HERE
-
-
-
+let canWeDeliver = (zipCode) => {
+    if (deliveryAreaZipCodes.includes(zipCode) !== true) {
+      console.log('Sorry, we can not deliver to that address.');
+    } else {
+      console.log('You are in our delivery zone!');
+    }
+  };
+canWeDeliver(85204)
 /* 
     Problem 2 Continued
 
@@ -69,10 +67,17 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
     loop (for loop, higher order array method).
     Name your new function `canWeDeliverTwo`.
 */
-
 // CODE HERE
-
-
+let canWeDeliverTwo = (zipCode) => {
+    for (let i = 0; i < deliveryAreaZipCodes.length; i++) {
+        if (deliveryAreaZipCodes[i] !== zipCode) {
+          return 'Sorry, we can not deliver to that address.';
+        } else {
+          return 'You are in our delivery zone!';
+        }
+    }
+};
+canWeDeliverTwo(85213)
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
@@ -85,7 +90,6 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
     Read on for more instructions.
 */
-
 const deals = [
     {
         title: '15% Off!', 
@@ -96,7 +100,6 @@ const deals = [
         desc: '   This deal lasts until the end of March! '
     }
 ]
-
 /*
     The owner has decided to take the 15% off
     deal down to 10%.
@@ -105,11 +108,11 @@ const deals = [
     to be itself, but use the `replace` method
     to replace the 15 with a 10.
 */
-
 //CODE HERE
-
-
-
+const newDeal = deals[0].title.replace('15', '10');
+deals[0].title = newDeal;
+console.log(newDeal);
+console.log(deals[0]);
 /*
     The restaurant is going to continue its
     family deal for another month. 
@@ -122,5 +125,8 @@ const deals = [
     whitespace in this string, since it seems
     to be displaying wrong on the live site.
 */
-
 //CODE HERE
+let newDeal2 = deals[1].desc.replace('March', 'April');
+deals[1].desc = newDeal2.trim();
+console.log(newDeal2)
+console.log(deals[1])
